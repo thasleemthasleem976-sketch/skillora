@@ -62,7 +62,7 @@ export default function Navbar({ onToggleSidebar }) {
             </button>
 
             {showNotifications && (
-              <div className="absolute right-0 mt-3 w-72 sm:w-84 glass-panel border border-white/80 p-4 z-50 shadow-[0_20px_50px_rgba(15,23,42,0.12)] animate-in fade-in zoom-in-95 duration-150">
+              <div className="absolute right-0 mt-3 w-72 sm:w-84 glass-dropdown rounded-3xl p-4 z-50 animate-in fade-in zoom-in-95 duration-150">
                 <div className="flex items-center justify-between pb-3 border-b border-white/40">
                   <span className="text-xs font-black text-slate-900">Notifications ({unreadCount} new)</span>
                   {unreadCount > 0 && (
@@ -116,8 +116,8 @@ export default function Navbar({ onToggleSidebar }) {
             </button>
 
             {showProfileMenu && (
-              <div className="absolute right-0 mt-3 w-56 glass-panel border border-white/80 p-2 z-50 shadow-[0_20px_50px_rgba(15,23,42,0.12)] animate-in fade-in zoom-in-95 duration-150">
-                <div className="px-3 py-2.5 border-b border-white/40">
+              <div className="absolute right-0 mt-3 w-60 glass-dropdown rounded-3xl p-2.5 z-50 animate-in fade-in zoom-in-95 duration-150">
+                <div className="px-3.5 py-2.5 border-b border-slate-200/80 bg-slate-50/80 rounded-2xl mb-1.5 shadow-xs">
                   <p className="text-xs font-bold text-slate-900">{user.name}</p>
                   <p className="text-[11px] text-slate-500 truncate">{user.email}</p>
                 </div>
@@ -127,7 +127,7 @@ export default function Navbar({ onToggleSidebar }) {
                       setShowProfileMenu(false);
                       navigate('/profile');
                     }}
-                    className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:text-slate-900 hover:bg-white/40 transition-all"
+                    className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 hover:text-slate-900 hover:bg-slate-100/90 transition-all"
                   >
                     <UserIcon className="w-3.5 h-3.5" />
                     Profile & Settings
@@ -137,7 +137,7 @@ export default function Navbar({ onToggleSidebar }) {
                       logout();
                       navigate('/login');
                     }}
-                    className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-red-600 hover:bg-red-50/60 transition-all"
+                    className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-red-600 hover:bg-red-50/90 font-bold transition-all"
                   >
                     <LogOut className="w-3.5 h-3.5" />
                     Sign Out
