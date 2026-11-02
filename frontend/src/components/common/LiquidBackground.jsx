@@ -7,7 +7,7 @@ export default function LiquidBackground() {
       <div
         className="absolute inset-0 bg-no-repeat bg-cover bg-fixed transition-all duration-700"
         style={{
-          backgroundImage: `url('/workspace-hd.jpg'), url('/workspace-bg.png')`,
+          backgroundImage: `url('${import.meta.env.BASE_URL}workspace-hd.jpg'), url('${import.meta.env.BASE_URL}workspace-bg.png')`,
           backgroundPosition: 'center right',
           backgroundSize: 'cover',
           imageRendering: 'auto',
