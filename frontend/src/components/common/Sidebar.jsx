@@ -57,8 +57,8 @@ export default function Sidebar({ isOpen = false, onClose }) {
 
   const links = role === 'admin' ? adminLinks : role === 'teacher' ? teacherLinks : studentLinks;
 
-  const sidebarContent = (
-    <div className="flex-1 glass-panel flex flex-col overflow-hidden shadow-[0_16px_40px_rgba(15,23,42,0.06),inset_0_1px_1.5px_rgba(255,255,255,0.90)] border border-white/60">
+  const renderSidebarContent = (isMobile = false) => (
+    <div className={`flex-1 ${isMobile ? "glass-dropdown" : "glass-panel"} flex flex-col overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.18),inset_0_1px_1.5px_rgba(255,255,255,0.95)] border border-white/80`}>
       {/* Brand Logo with Tactile Glass Tile */}
       <div className="h-20 flex items-center justify-between px-6 border-b border-white/40">
         <div className="flex items-center gap-3.5">
@@ -172,7 +172,7 @@ export default function Sidebar({ isOpen = false, onClose }) {
     <>
       {/* Desktop Persistent Sidebar */}
       <aside className="w-68 p-4 shrink-0 min-h-screen relative z-20 hidden lg:flex flex-col">
-        {sidebarContent}
+        {renderSidebarContent(false)}
       </aside>
 
       {/* Mobile Slide-over Drawer with Backdrop */}
@@ -180,12 +180,12 @@ export default function Sidebar({ isOpen = false, onClose }) {
         <div className="fixed inset-0 z-50 lg:hidden flex">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-slate-950/40 backdrop-blur-xs transition-opacity duration-300"
+            className="fixed inset-0 bg-slate-950/60 backdrop-blur-xl transition-all duration-300"
             onClick={onClose}
           />
           {/* Drawer Capsule */}
           <div className="relative w-72 max-w-[85vw] h-full p-4 flex flex-col z-50 animate-in slide-in-from-left duration-200">
-            {sidebarContent}
+            {renderSidebarContent(true)}
           </div>
         </div>
       )}

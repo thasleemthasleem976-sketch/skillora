@@ -14,6 +14,17 @@ export default function Navbar({ onToggleSidebar }) {
   if (!user) return null;
 
   return (
+    <>
+      {/* Blurred Backdrop for Dropdowns & Menus */}
+      {(showNotifications || showProfileMenu) && (
+        <div
+          className="fixed inset-0 z-40 bg-slate-950/25 backdrop-blur-sm transition-opacity"
+          onClick={() => {
+            setShowNotifications(false);
+            setShowProfileMenu(false);
+          }}
+        />
+      )}
     <header className="px-3 sm:px-6 pt-3 sm:pt-4 pb-2 sticky top-0 z-40">
       {/* Floating Liquid Glass Topbar */}
       <div className="h-16 glass-panel px-3 sm:px-6 flex items-center justify-between border border-white/60 shadow-[0_12px_30px_rgba(15,23,42,0.05),inset_0_1px_1.5px_rgba(255,255,255,0.90)]">
@@ -149,5 +160,6 @@ export default function Navbar({ onToggleSidebar }) {
         </div>
       </div>
     </header>
+    </>
   );
 }
